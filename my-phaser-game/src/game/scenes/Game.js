@@ -12,17 +12,22 @@ export class Game extends Scene {
         this.load.image('ground', '/elementMetal020.png');
     }
 
-    
+
     create() {
+        let player;
         let pole;
         this.add.image(512, 384, 'background');
-        this.add.image(400, 300, "animal")
         pole = this.physics.add.staticGroup()
-        pole.create(400, 568, "ground").setScale(1).refreshBody()
-        pole.create(600, 400, 'ground');
-        pole.create(100, 250, 'ground');
-        pole.create(750, 220, 'ground');
+        this.player = this.physics.add.sprite(550, 150, 'animal').setScale(0.4);
+        // EventBus.emit('current-scene-ready', this);
+    }
 
-        EventBus.emit('current-scene-ready', this);
+    update() {
+        let cursor;
+        cursor = this.input.keyboard.createCursorKeys();
+        if (cursor.up.isDown) {
+            this.player.setVelocityY(-500)
+        }
+
     }
 }
