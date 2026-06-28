@@ -63,23 +63,28 @@ export class Game extends Scene {
         const gap = 120;
         const minY = 60;
         const maxY = 300;
+
         // const randomY = Phaser.Math.Between(minY, maxY);
         const randomY = Math.random() * (maxY - minY) + minY
-
+        
         this.pipes.create(1024, randomY, "pole").setScale(1, 2);
-
+        
         this.pipes.create(1024, randomY + gap + 100, 'pole').setScale(1, 2);
+        // this.pipes.setSize(200,500)
 
         const spawnX = this.scale.width + 50
 
         const top = this.pipes.create(spawnX, randomY, "pole");
-        top.setScale(1, 2);
+        top.setScale(1,2)
+        top.setSize(200,500)
         top.setImmovable(true);
         top.body.allowGravity = false;
         top.setVelocityX(-200);
 
+
         const bottom = this.pipes.create(spawnX, randomY + gap + 100, 'pole');
-        bottom.setScale(1, 2);
+        top.setSize(200,500)
+        top.setScale(1,2)
         bottom.setImmovable(true);
         bottom.body.allowGravity = false;
         bottom.setVelocityX(-200);
@@ -91,6 +96,7 @@ export class Game extends Scene {
         this.pipes.getChildren().forEach(pipe => {
 
             if (pipe.x < -pipe.displayWidth) pipe.destroy()
+                // pipe.displ
         })
     }
 }
