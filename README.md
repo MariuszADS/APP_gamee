@@ -5,7 +5,7 @@ A simple Flappy Bird-inspired game built with Phaser 4, React, and Vite.
 ```bash
 cd my-phaser-game
 npm install
-npm run dev-nolog
+npm run dev
 ```
 ## Controls
 - **Space** — Jump.
